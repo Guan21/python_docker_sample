@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  python-flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask-image
+    container_name: flask-app
+    ports:
+      - 8000:5000
+    volumes:
+      - ./:/app
