@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  python-flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask-image
+    container_name: flask-app
+    ports:
+      - 8000:5000
+    volumes:
+      - ./:/app
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.10.0/24
